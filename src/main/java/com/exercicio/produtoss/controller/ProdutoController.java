@@ -45,4 +45,9 @@ public class ProdutoController {
         ProdutoModel produtoModel = produtoService.findById(id);
         return ResponseEntity.ok(produtoModel);
     }
+
+    @PutMapping("/{id}")
+    public ProdutoModel atualizar(@PathVariable Long id, @RequestBody ProdutoModel produtoModel) {
+        return produtoService.atualizar(id, produtoModel);
+    }
 }

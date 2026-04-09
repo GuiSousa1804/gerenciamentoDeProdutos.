@@ -1,8 +1,7 @@
 package com.exercicio.produtoss.models;
 
+import com.exercicio.produtoss.enums.ProdutoEnum;
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 
 @Entity(name = "Produto")
 @Table(name = "tb_produto")
@@ -11,12 +10,12 @@ public class ProdutoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name = "nome do produto")
     private String nome;
-    @Column (name = "preço")
-    private BigDecimal preco;
-    @Column(name = "estoque do produto")
-    private Integer estoque;
+    private String descricao;
+    private Double preco;
+    private ProdutoEnum produtoEnum;
+
+    public ProdutoModel() {}
 
     public Long getId() {
         return id;
@@ -34,19 +33,27 @@ public class ProdutoModel {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
-    public Integer getEstoque() {
-        return estoque;
+    public ProdutoEnum getProdutoEnum() {
+        return produtoEnum;
     }
 
-    public void setEstoque(Integer estoque) {
-        this.estoque = estoque;
+    public void setProdutoEnum(ProdutoEnum produtoEnum) {
+        this.produtoEnum = produtoEnum;
     }
 }
